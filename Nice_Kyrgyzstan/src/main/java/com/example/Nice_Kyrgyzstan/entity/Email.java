@@ -2,7 +2,6 @@ package com.example.Nice_Kyrgyzstan.entity;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -12,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "emails")
-    public class EmailEntity {
+    public class Email {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +26,7 @@ import lombok.Setter;
         private String subject;
 
         @NotBlank(message = "Email is required")
-        @Email(message = "Email should be valid")
+        @jakarta.validation.constraints.Email(message = "Email should be valid")
         private String email;
 
         @NotBlank(message = "Message is required")
