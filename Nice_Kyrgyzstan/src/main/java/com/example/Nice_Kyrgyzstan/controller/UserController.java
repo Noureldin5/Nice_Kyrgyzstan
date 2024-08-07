@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    @PostMapping("/register")
-    public void register(@RequestBody UserRegisterRequest userRequest){
-        userService.register(userRequest);
-    }
+//    @PostMapping("/register")
+//    public void register(@RequestBody UserRegisterRequest userRequest){
+//        userService.register(userRequest);
+//    }
     @GetMapping("/{id}")
-    public UserResponse getById(@PathVariable Long id){
-        return userService.getById(id);
+    public void getById(@PathVariable Long id ){
+        userService.getById(id);
     }
     @PutMapping("/update/{id}")
     public void updateUser(@PathVariable Long id, @RequestBody UserRegisterRequest userRequest){
