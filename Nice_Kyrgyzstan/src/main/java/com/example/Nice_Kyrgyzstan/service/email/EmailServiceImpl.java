@@ -1,7 +1,7 @@
-package com.example.Nice_Kyrgyzstan.service;
+package com.example.Nice_Kyrgyzstan.service.email;
 
 import com.example.Nice_Kyrgyzstan.dto.EmailForm;
-import com.example.Nice_Kyrgyzstan.entity.Email;
+import com.example.Nice_Kyrgyzstan.entity.EmailEntity;
 import com.example.Nice_Kyrgyzstan.repo.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -28,17 +28,18 @@ public class EmailServiceImpl implements EmailService{
     }
     @Override
     public void saveEmailForm(EmailForm emailForm) {
-        Email emailEntity = new Email();
+        EmailEntity emailEntity = new EmailEntity();
         emailEntity.setName(emailForm.getName());
         emailEntity.setSubject(emailForm.getSubject());
         emailEntity.setEmail(emailForm.getEmail());
         emailEntity.setMessage(emailForm.getMessage());
+        emailEntity.setAge(emailForm.getAge());
 
         emailRepository.save(emailEntity);
     }
 
     @Override
-    public List<Email> getAllEmails() {
+    public List<EmailEntity> getAllEmails() {
         return emailRepository.findAll();
     }
 

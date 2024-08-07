@@ -1,8 +1,6 @@
 package com.example.Nice_Kyrgyzstan.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,5 +23,8 @@ public class EmailForm {
     @Size(min = 10, max = 500, message = "Message must be between 10 and 500 characters")
     private String message;
 
+    @NotNull(message = "Age is required")
+    @Positive(message = "Age must be positive")
+    private Integer age;
 
 }

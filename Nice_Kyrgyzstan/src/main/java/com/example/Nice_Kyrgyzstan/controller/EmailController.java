@@ -1,32 +1,29 @@
 package com.example.Nice_Kyrgyzstan.controller;
-import com.example.Nice_Kyrgyzstan.entity.Email;
+import com.example.Nice_Kyrgyzstan.entity.EmailEntity;
 
 import com.example.Nice_Kyrgyzstan.dto.EmailForm;
-import com.example.Nice_Kyrgyzstan.service.EmailService;
+import com.example.Nice_Kyrgyzstan.service.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import jakarta.validation.Valid;
 
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+//@RequestMapping("/email")
 public class EmailController {
-    @Autowired
+    @Autowired //why//
     private EmailService emailService;
 
     @GetMapping("/email")
-    public ResponseEntity<List<Email>> getAllEmails() {
-        List<Email> emails = emailService.getAllEmails();
+    public ResponseEntity<List<EmailEntity>> getAllEmails() {
+        List<EmailEntity> emails = emailService.getAllEmails();
         return new ResponseEntity<>(emails, HttpStatus.OK);
-    }
+    }//understand//
 
 
     @PostMapping("/email")

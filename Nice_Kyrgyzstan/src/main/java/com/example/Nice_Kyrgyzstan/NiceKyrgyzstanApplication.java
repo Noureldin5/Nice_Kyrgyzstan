@@ -10,4 +10,5 @@ public class NiceKyrgyzstanApplication {
 		SpringApplication.run(NiceKyrgyzstanApplication.class, args);
 	}
 
+
 }
